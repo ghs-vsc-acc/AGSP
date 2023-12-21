@@ -1,50 +1,21 @@
-#include <SFML/Graphics.hpp>
+#include <SFML/Window/Event.hpp>
+#include <vector>
 
-constexpr int MAP_WIDTH = 20;
-constexpr int MAP_HEIGHT = 20;
-constexpr int TILE_SIZE = 32; // x32 pixels
+#include "tileMap.hpp"
 
-int tilemap[MAP_WIDTH][MAP_HEIGHT];
+int main(int argc, char *argv[]) {
+    sf::RenderWindow window(sf::VideoMode(20 * 32, 20 * 32), "Tilemap Test");
+    int map_arr[20][20];
 
-void drawTilemap(sf::RenderWindow& window) {
-    sf::VertexArray vertices(sf::Quads, MAP_WIDTH * MAP_HEIGHT * 4);
-
-    for (int x = 0; x < MAP_WIDTH; x++) {
-        for (int y = 0; y < MAP_HEIGHT; y++) {
-            int tileType = tilemap[x][y];
-
-            float xPos = (x * (float)TILE_SIZE);
-            float yPos = (y * (float)TILE_SIZE);
-
-            vertices[(x + y * MAP_WIDTH) * 4].position = sf::Vector2f(xPos, yPos);
-            vertices[(x + y * MAP_WIDTH) * 4 + 1].position = sf::Vector2f((xPos + TILE_SIZE), yPos);
-            vertices[(x + y * MAP_WIDTH) * 4 + 2].position = sf::Vector2f((xPos + TILE_SIZE), yPos + TILE_SIZE);
-            vertices[(x + y * MAP_WIDTH) * 4 + 3].position = sf::Vector2f(xPos, (yPos + TILE_SIZE));
-
-            sf::Color tileColor = (tileType == 1) ? sf::Color::Black : sf::Color::White;
-
-            vertices[((x + y * MAP_WIDTH) * 4)].color = tileColor;
-            vertices[((x + y * MAP_WIDTH) * 4 + 1)].color = tileColor;
-            vertices[((x + y * MAP_WIDTH) * 4 + 2)].color = tileColor;
-            vertices[((x + y * MAP_WIDTH) * 4 + 3)].color = tileColor;
+    // load map with test data
+    for (int i = 0; i < 20; ++i) {
+        for (int j = 0; j < 20; ++j) {
+            map_arr[i][j] = (i + j) % 2 == 0 ? 1 : 0;
         }
     }
 
-    window.draw(vertices);
-}
+    TileMap tileMap(map_arr, "./exampleFileManifestPath.json");
 
-// basic tilemap test
-int main() {
-    sf::RenderWindow window(sf::VideoMode((MAP_WIDTH * TILE_SIZE), (MAP_HEIGHT * TILE_SIZE)), "AGSP++");
-
-    // color
-    for (int x = 0; x < MAP_WIDTH; x++) {
-        for (int y = 0; y < MAP_HEIGHT; y++) {
-            tilemap[x][y] = (x + y) % 2 == 0 ? 1 : 0;
-        }
-    }
-
-    // main loop
     while (window.isOpen()) {
         sf::Event event;
         while (window.pollEvent(event)) {
@@ -53,11 +24,11 @@ int main() {
             }
         }
 
-        // clear current frame
+        // clear frame
         window.clear();
 
-        // do/draw stuff...
-        drawTilemap(window);
+        // do/draw stuff
+        tileMap.render(window);
 
         // render new frame
         window.display();
@@ -65,5 +36,3 @@ int main() {
 
     return 0;
 }
-
-

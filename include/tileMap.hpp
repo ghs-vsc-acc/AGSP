@@ -1,35 +1,31 @@
 #pragma once
 
-/*
-NOTE: consider that "levels" need to be implemented, in map have levels then in levels have tiles (for later)
-example theoretical manifest file:
+#include <SFML/Graphics/RenderWindow.hpp>
 
-{
-	"map": {
-		"tiles": [
-			{
-				"textureId": 1,
-				"x": 0,
-				"y": 0,
-				"properties": {
-					"passable": false, // like can you walk through this object, is it solid
-				}
-			}
-		],
-		"textures": [
-			{
-				"id": 1,
-				"file": "skyTextureBar.png"
-			},
-			{
-				"id": 2,
-				"file": "groundTextureFoo.png"
-			}
-		]
-	}
-}
-*/
+#include <nlohmann/json.hpp>
+#include <vector>
 
-struct Tile {};
+struct Tile {
+    int arr_x;
+    int arr_y;
 
-class TileMap {}; // see if should struct
+    float x_pos;
+    float y_pos;
+
+    int t_col; // tmp: color, once fully implemented will instead be index number being the value of a file path
+};
+
+struct TileMap {
+    int width;
+    int height;
+    int t_size;
+    std::vector<Tile> tiles; // main tile vector
+    nlohmann::json m_data;
+
+
+    TileMap(int map_arr[20][20], std::string manifest_fp);
+
+    void fromJson(const nlohmann::json& t_json, Tile& t_tile);
+    nlohmann::json loadManifest(std::string manifest_fp);
+    void render(sf::RenderWindow& window_obj);
+};

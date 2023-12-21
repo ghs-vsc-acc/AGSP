@@ -29,5 +29,8 @@
     <ClInclude Include="include\tileMap.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="include\consts.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

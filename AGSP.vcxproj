@@ -144,6 +144,7 @@
     <ClCompile Include="src\tileMap.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="include\consts.hpp" />
     <ClInclude Include="include\nlohmann\json.hpp" />
     <ClInclude Include="include\tileMap.hpp" />
   </ItemGroup>
