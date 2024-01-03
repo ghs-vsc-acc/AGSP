@@ -25,7 +25,7 @@ int main() {
     const int TILE_SIZE = 100;
 
     // load map manifest
-    std::ifstream file("Debug/exampleMapData.json");
+    std::ifstream file("assets/exampleMapData.json");
     if (!file.is_open()) {
         std::cerr << "Failed to open file!" << std::endl;
         return -1;

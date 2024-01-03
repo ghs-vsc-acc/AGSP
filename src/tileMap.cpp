@@ -1,10 +1,6 @@
 #include "tileMap.hpp"
 
 namespace ns_tile_map {
-	struct Tile {
-		// same as in 'main.cpp'
-	};
-
 	TileMap::TileMap(std::string manifest_fp) {
 		// ...
 	}

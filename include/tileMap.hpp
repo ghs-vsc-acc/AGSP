@@ -8,7 +8,19 @@
 namespace ns_tile_map {
 	class TileMap {
 		private:
-			struct Tile;
+			struct Tile {
+				// position within array
+				int arr_x;
+				int arr_y;
+
+				// in-game position
+				int x_pos;
+				int y_pos;
+
+				// color value (later to be texture path index)
+				int t_col;
+			};
+
 			std::vector<std::vector<Tile>> tileVector;
 
 		public:
