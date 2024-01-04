@@ -1,9 +1,15 @@
 #include "tileMap.hpp"
+#include "utils.hpp"
+
 #include <SFML/Window/Event.hpp>
 
 int main(void) {
 	sf::RenderWindow m_window(sf::VideoMode((GRID_SIZE * TILE_SIZE), (GRID_SIZE * TILE_SIZE)), "AGSP++", sf::Style::Close);
 	ns_tile_map::TileMap m_tileMap("assets/exampleMapData.json");
+
+	// DEBUG
+	ns_utils::debug_setPositionToTopLeftOnSpawn(m_window);
+	// =====
 
 	while (m_window.isOpen()) {
 		sf::Event event;
@@ -11,6 +17,10 @@ int main(void) {
 			if (event.type == sf::Event::Closed) {
 				m_window.close();
 			}
+
+			// DEBUG
+			ns_utils::debug_applicationQuickEscQuickExit(event, m_window);
+			// =====
 		}
 
 		// clear frame

@@ -1,5 +1,7 @@
-#pragma once
+#ifndef CONSTS_HPP
+#define CONSTS_HPP
 
-// adjust all values (current values [3, 20] only account for the fact that we are temporarily using a 9x9 grid)
-constexpr int GRID_SIZE = 3;
-constexpr int TILE_SIZE = 100; // x0 (get real pixel size later, current testing)
+constexpr int GRID_SIZE = 32; // 32x32
+constexpr int TILE_SIZE = 32; // 32x32
+
+#endif // CONSTS_HPP

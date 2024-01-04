@@ -1,4 +1,5 @@
-#pragma once
+#ifndef TILEMAP_HPP
+#define TILEMAP_HPP
 
 #include <SFML/Graphics/RenderWindow.hpp>
 #include <nlohmann/json.hpp>
@@ -32,3 +33,5 @@ namespace ns_tile_map {
 			void draw(sf::RenderWindow& m_window_instance);
 	};
 }
+
+#endif // TILEMAP_HPP

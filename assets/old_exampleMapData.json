@@ -1,0 +1,74 @@
+{
+    "map": {
+        "tiles": {
+            "0": {
+                "arr_x": 0,
+                "arr_y": 0,
+                "x_pos": 0,
+                "y_pos": 0,
+                "t_col": 0
+            },
+            "1": {
+                "arr_x": 0,
+                "arr_y": 1,
+                "x_pos": 0,
+                "y_pos": 100,
+                "t_col": 1
+            },
+            "2": {
+                "arr_x": 0,
+                "arr_y": 2,
+                "x_pos": 0,
+                "y_pos": 200,
+                "t_col": 2
+            },
+            "3": {
+                "arr_x": 1,
+                "arr_y": 0,
+                "x_pos": 100,
+                "y_pos": 0,
+                "t_col": 1
+            },
+            "4": {
+                "arr_x": 1,
+                "arr_y": 1,
+                "x_pos": 100,
+                "y_pos": 100,
+                "t_col": 2
+            },
+            "5": {
+                "arr_x": 1,
+                "arr_y": 2,
+                "x_pos": 100,
+                "y_pos": 200,
+                "t_col": 0
+            },
+            "6": {
+                "arr_x": 2,
+                "arr_y": 0,
+                "x_pos": 200,
+                "y_pos": 0,
+                "t_col": 2
+            },
+            "7": {
+                "arr_x": 2,
+                "arr_y": 1, 
+                "x_pos": 200,
+                "y_pos": 100,
+                "t_col": 0
+            },
+            "8": {
+                "arr_x": 2,
+                "arr_y": 2,
+                "x_pos": 200,
+                "y_pos": 200,
+                "t_col": 1
+            }
+        }
+    },
+    "textureDict": {
+        "0": "red",
+        "1": "green",
+        "2": "blue"
+    }
+}
