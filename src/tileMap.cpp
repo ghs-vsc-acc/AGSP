@@ -83,7 +83,6 @@ namespace ns_tile_map {
 						static_cast<float>(k * TILE_SIZE));
 
 				// set color (soon to be texture)
-
 				nlohmann::json t_textureDict = test_json_data_var["textureDict"];
 				int t_col = tileVector[k][j].t_col;
 				std::string tileColStr = t_textureDict[std::to_string(t_col)];
