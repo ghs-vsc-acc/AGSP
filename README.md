@@ -12,6 +12,7 @@ AGSP is...
 - [ ] multi-layered world/map
 - [ ] better manifest checking (for data)
 - [ ] encapsulating game class (?)
+- [ ] separate asset data into subdirectorys (map data in map data, fonts in fonts, etc)
 
 ## == preview ==
 ![](assets/repo/preview01.png)
