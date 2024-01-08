@@ -59,7 +59,7 @@ namespace ns_tile_map {
 		//std::ifstream t_file("assets/exampleMapData.json");
 		std::ifstream t_file(manifest_fp);
 		if (!t_file.is_open()) {
-			std::cerr << "" << std::endl;
+			std::cerr << "[ERR]: Failed to open manifest..." << std::endl;
 			// return -1 // not possible due to current program setup
 			// but ideal process would be escape program when map cant load
 		}
