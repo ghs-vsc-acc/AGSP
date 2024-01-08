@@ -56,7 +56,8 @@ namespace ns_tile_map {
 	// check to see if that data is there, if it is, we fucked up, if not
 	// all good, continue with program execution
 	nlohmann::json TileMap::readMapData(std::string manifest_fp) {
-		std::ifstream t_file("assets/exampleMapData.json");
+		//std::ifstream t_file("assets/exampleMapData.json");
+		std::ifstream t_file(manifest_fp);
 		if (!t_file.is_open()) {
 			std::cerr << "" << std::endl;
 			// return -1 // not possible due to current program setup
@@ -73,14 +74,21 @@ namespace ns_tile_map {
 		return jsonData;
 	}
 
+	// NOTE: (note to self) the spacing issue is due to the way we go about
+	//       generating test data. our defined values (consts.hpp) are fine,
+	//		 its the values generated on map data generation that are wrong.
 	void TileMap::draw(sf::RenderWindow& m_window_obj) {
+		nlohmann::json t_jsonData = test_json_data_var["map"]["tiles"];
+
+		int t_index = 0;
 		for (int k = 0; k < GRID_SIZE; k++) {
 			for (int j = 0; j < GRID_SIZE; j++) {
 				sf::RectangleShape t_tile(sf::Vector2f((float)TILE_SIZE, (float)TILE_SIZE));
 
 				// set position
-				t_tile.setPosition(static_cast<float>(j * TILE_SIZE),
-						static_cast<float>(k * TILE_SIZE));
+				//t_tile.setPosition(static_cast<float>(j * TILE_SIZE), // original implementation
+				//		static_cast<float>(k * TILE_SIZE));
+				t_tile.setPosition((float)tileVector[k][j].x_pos, (float)tileVector[k][j].y_pos); // new implementation
 
 				// set color (soon to be texture)
 				nlohmann::json t_textureDict = test_json_data_var["textureDict"];
