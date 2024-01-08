@@ -10,7 +10,7 @@ int main(void) {
 
 	sf::RenderWindow m_window(sf::VideoMode(WINDOW_SIZE, WINDOW_SIZE), "AGSP++", sf::Style::Close);
 	//ns_tile_map::TileMap m_tileMap("assets/exampleMapData.json"); <-- map actual (uncomment when done using test map data script to generate maps)
-	ns_tile_map::TileMap m_tileMap("scripts/generated_data.json");
+	ns_tile_map::TileMap m_tileMap("scripts/out_data/generated_data.json");
 
 	// DEBUG
 	ns_utils::debug_setPositionToTopLeftOnSpawn(m_window);

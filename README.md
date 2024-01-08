@@ -5,7 +5,7 @@ AGSP is...
 
 ## == to-implement ==
 - [ ] error handling pipeline to account for areas in program execution scope
-- [ ] 32x32 grid
+- [x] 16x16 grid
 - [ ] editor for map creation (for now create script for generating test data)
 - [ ] state system
 - [ ] menu system (in-game, pause, main menu)
